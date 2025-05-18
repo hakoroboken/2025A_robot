@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find-pkg-share 2025A_launch)/launch/control/keyboard.launch.xml"/>
+    <include file="$(find-pkg-share 2025A_launch)/launch/sim/world.launch.xml"/>
+</launch>
