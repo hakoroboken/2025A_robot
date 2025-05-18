@@ -24,7 +24,6 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY launch
   DIRECTORY world
   DESTINATION share/${PROJECT_NAME}/
 )
