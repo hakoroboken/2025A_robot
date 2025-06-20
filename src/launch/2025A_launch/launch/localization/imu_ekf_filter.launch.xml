@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="imu_ekf_filter" exec="imu_ekf_filter" output="screen">
+        <remap from="/imu/raw_data" to="/camera/camera/imu"/>
+        <remap from="/imu/filtered" to="/imu"/>
+
+        <param name="frame_id" value="camera_imu_optical_frame"/>
+        <param name="degree_to_radian" value="false"/>
+    </node>
+</launch>

@@ -33,7 +33,7 @@
           <pose>10 0 0 1.57 0 3.14</pose>
           <geometry>
             <mesh>
-              <uri>field2025.obj</uri>
+              <uri>field2025.glb</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -56,7 +56,7 @@
           <pose>10 0 0 1.57 0 3.14</pose>
           <geometry>
             <mesh>
-              <uri>field2025.obj</uri>
+              <uri>field2025.glb</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>

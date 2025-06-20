@@ -1,0 +1,8 @@
+<launch>
+    <!-- 850 * 980 -->
+    <node pkg="tf2_ros" exec="static_transform_publisher" name="static_tf_map_to_odom" output="screen" args="0.0 0.0 0.0 0.0 0.0 0.0 map odom"/>
+
+    <node pkg="tf2_ros" exec="static_transform_publisher" name="static_tf_base_to_camera" output="screen" args="0.0 0.0 0.0 0.0 0.0 0.0 base_link camera_link"/>
+    <node pkg="tf2_ros" exec="static_transform_publisher" name="static_tf_base_to_camera" output="screen" args="0.0 0.0 0.0 0.0 0.0 0.0 base_link imu_link"/>
+    <node pkg="tf2_ros" exec="static_transform_publisher" name="static_tf_base_to_camera" output="screen" args="0.0 0.0 0.0 0.0 0.0 0.0 base_link lidar_link"/>
+</launch>
