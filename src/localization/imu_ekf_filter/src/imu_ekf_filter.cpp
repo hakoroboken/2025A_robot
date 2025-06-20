@@ -7,13 +7,17 @@ namespace imu_ekf_filter
         frame_id_ = this->declare_parameter("frame_id", "imu");
         deg_to_rad_ = this->declare_parameter("degree_to_radian", false);
 
+        ekf_ = std::make_shared<ekf::EKF>();
+
         imu_publisher_ = this->create_publisher<sensor_msgs::msg::Imu>("/imu/filtered", rclcpp::SystemDefaultsQoS());
         
         imu_subscriber_ = this->create_subscription<sensor_msgs::msg::Imu>(
             "/imu/raw_data",
-            0,
+            rclcpp::SensorDataQoS(),
             std::bind(&ImuEkfFilter::imu_callback, this, _1)
         );
+
+        last_time_ = this->get_clock()->now();
 
         RCLCPP_INFO(this->get_logger(), "Start %s", this->get_name());
     }
@@ -46,6 +50,7 @@ namespace imu_ekf_filter
 
             const auto gyro = ekf::createVec3(gyro_x, gyro_y, gyro_z);
 
+            RCLCPP_INFO(this->get_logger(), "estimate ekf ...");
             const auto quat = ekf_->estimate(gyro, accel, delta_time.seconds());
 
             auto result = sensor_msgs::msg::Imu();
