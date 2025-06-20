@@ -50,7 +50,6 @@ namespace imu_ekf_filter
 
             const auto gyro = ekf::createVec3(gyro_x, gyro_y, gyro_z);
 
-            RCLCPP_INFO(this->get_logger(), "estimate ekf ...");
             const auto quat = ekf_->estimate(gyro, accel, delta_time.seconds());
 
             auto result = sensor_msgs::msg::Imu();
