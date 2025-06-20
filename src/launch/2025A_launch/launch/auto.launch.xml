@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find-pkg-share 2025A_launch)/launch/localization.launch.xml"/>
+    <include file="$(find-pkg-share 2025A_launch)/launch/sensing.launch.xml"/>
+</launch>
